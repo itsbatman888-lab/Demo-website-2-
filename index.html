@@ -3,551 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brown Board | Natural & Traditional Dining</title>
+    <title>Brown Board | Natural. Organic. Traditional.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-cream: #F9F7F2;
+            --text-dark: #2D2926;
+            --accent-brown: #8D775F;
         }
-
         body {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #333;
-            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
         }
-
-        /* Header */
-        header {
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .btn-outline {
+            border: 1px solid white;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: black;
+        }
+        .btn-solid {
+            background-color: #F3EAD3;
+            color: #2D2926;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .mobile-nav {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #2c2c2c;
-        }
-
-        .menu-toggle {
-            width: 35px;
-            height: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
             width: 100%;
-            height: 3px;
-            background: #2c2c2c;
-            border-radius: 2px;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23a0826d" width="1200" height="800"/><circle cx="200" cy="300" r="80" fill="%238b6f5a" opacity="0.3"/><circle cx="1000" cy="500" r="120" fill="%238b6f5a" opacity="0.3"/></svg>');
-            background-size: cover;
-            background-position: center;
-            display: flex;
+            height: 100%;
+            background: var(--bg-cream);
+            z-index: 50;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
-
-        .hero-tagline {
-            font-size: 16px;
-            letter-spacing: 8px;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .hero h1 {
-            font-size: 72px;
-            line-height: 1.2;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .hero-description {
-            font-size: 20px;
-            max-width: 800px;
-            line-height: 1.6;
-            margin-bottom: 50px;
-            font-weight: 300;
-        }
-
-        .btn-primary {
-            background: #f4ede4;
-            color: #2c2c2c;
-            padding: 18px 50px;
-            text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 3px;
-            font-weight: 600;
-            display: inline-block;
-            margin: 10px;
-            transition: all 0.3s;
-        }
-
-        .btn-primary:hover {
-            background: #fff;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 18px 50px;
-            text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 3px;
-            font-weight: 600;
-            border: 2px solid white;
-            display: inline-block;
-            margin: 10px;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: #2c2c2c;
-        }
-
-        /* Story Section */
-        .story {
-            background: #f4ede4;
-            padding: 100px 40px;
-        }
-
-        .story-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .story h2 {
-            font-size: 56px;
-            margin-bottom: 40px;
-            font-weight: 400;
-            line-height: 1.3;
-        }
-
-        .story-divider {
-            width: 140px;
-            height: 4px;
-            background: #a0826d;
-            margin: 40px 0;
-        }
-
-        .story p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            color: #5a5a5a;
-        }
-
-        /* Stats Section */
-        .stats {
-            background: #f4ede4;
-            padding: 60px 40px;
-            display: flex;
-            justify-content: center;
-            gap: 120px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: left;
-        }
-
-        .stat-number {
-            font-size: 64px;
-            font-weight: 400;
-            color: #2c2c2c;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            letter-spacing: 2px;
-            color: #8b7355;
-            text-transform: uppercase;
-        }
-
-        /* Image Section */
-        .image-section {
-            background: #f4ede4;
-            padding: 0 40px 100px 40px;
-        }
-
-        .image-section img {
-            width: 100%;
-            max-width: 1000px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Menu Section */
-        .menu-section {
-            background: #fff;
-            padding: 100px 40px;
-            text-align: center;
-        }
-
-        .menu-header {
-            font-size: 14px;
-            letter-spacing: 4px;
-            color: #8b7355;
-            margin-bottom: 30px;
-        }
-
-        .menu-title {
-            font-size: 56px;
-            margin-bottom: 60px;
-            font-weight: 400;
-        }
-
-        .menu-title-divider {
-            width: 140px;
-            height: 4px;
-            background: #a0826d;
-            margin: 40px auto 60px auto;
-        }
-
-        .menu-items {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .menu-item {
-            margin-bottom: 80px;
-        }
-
-        .menu-item-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><rect fill="%23d4a574" width="800" height="400"/><circle cx="400" cy="200" r="100" fill="%23b8935f" opacity="0.4"/></svg>');
-            background-size: cover;
-            background-position: center;
-            margin-bottom: 40px;
-        }
-
-        .menu-item-name {
-            font-size: 36px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-        }
-
-        .menu-item-price {
-            font-size: 32px;
-            color: #2c2c2c;
-        }
-
-        .menu-item-description {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .order-link {
-            font-size: 14px;
-            letter-spacing: 3px;
-            color: #2c2c2c;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-            font-weight: 600;
-        }
-
-        .order-link:after {
-            content: ' >';
-        }
-
-        /* Coffee Section */
-        .coffee-section {
-            background: #f4ede4;
-            padding: 100px 40px;
-            text-align: center;
-        }
-
-        .coffee-card {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: #e8dcc8;
-            padding: 80px 40px;
-        }
-
-        .coffee-title {
-            font-size: 48px;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        .coffee-divider {
-            width: 100px;
-            height: 3px;
-            background: #a0826d;
-            margin: 30px auto;
-        }
-
-        .coffee-subtitle {
-            font-size: 18px;
-            font-style: italic;
-            color: #666;
-            margin-bottom: 60px;
-        }
-
-        .coffee-item {
-            margin-top: 60px;
-        }
-
-        .coffee-name {
-            font-size: 32px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 700px;
-            margin: 0 auto 15px auto;
-        }
-
-        .coffee-price {
-            font-size: 28px;
-        }
-
-        .coffee-description {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-        }
-
-        .view-menu-btn {
-            margin-top: 60px;
-            background: transparent;
-            color: #2c2c2c;
-            padding: 18px 50px;
-            text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 3px;
-            font-weight: 600;
-            border: 2px solid #2c2c2c;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-
-        .view-menu-btn:hover {
-            background: #2c2c2c;
-            color: white;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: #fff;
-            padding: 100px 40px;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 52px;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .testimonials-divider {
-            width: 140px;
-            height: 4px;
-            background: #a0826d;
-            margin: 30px auto 40px auto;
-        }
-
-        .testimonials-intro {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 80px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .testimonial-card {
-            background: #fafafa;
-            padding: 50px;
-            margin: 40px auto;
-            max-width: 900px;
-            border-left: 4px solid #d4a574;
-        }
-
-        .stars {
-            font-size: 24px;
-            color: #d4a574;
-            margin-bottom: 25px;
-        }
-
-        .testimonial-text {
-            font-size: 20px;
-            font-style: italic;
-            line-height: 1.7;
-            color: #555;
-            margin-bottom: 25px;
-        }
-
-        .testimonial-author {
-            font-size: 18px;
-            font-weight: 600;
-            color: #2c2c2c;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 80px 40px 40px 40px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-        }
-
-        .footer-tagline {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #bbb;
-            margin-bottom: 60px;
-            max-width: 600px;
-        }
-
-        .footer-section {
-            margin-bottom: 50px;
-        }
-
-        .footer-section h3 {
-            font-size: 16px;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-
-        .footer-info {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            color: #bbb;
-            font-size: 16px;
-        }
-
-        .footer-info-icon {
-            margin-right: 15px;
-            font-size: 20px;
-        }
-
-        .footer-hours {
-            color: #bbb;
-            line-height: 1.8;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 30px;
-            margin-top: 50px;
-            text-align: center;
-            color: #888;
-            font-size: 14px;
-        }
-
-        .footer-links {
-            margin-top: 20px;
-        }
-
-        .footer-links a {
-            color: #bbb;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 14px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 42px;
-            }
-            
-            .story h2, .menu-title, .testimonials h2 {
-                font-size: 36px;
-            }
-            
-            .stats {
-                gap: 60px;
-            }
+            gap: 2rem;
         }
     </style>
 </head>
-<body>
+<body class="antialiased">
+
     <!-- Header -->
-    <header>
-        <div class="logo">BROWN BOARD</div>
-        <div class="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+    <header class="fixed w-full z-40 transition-colors duration-300 px-6 py-6 flex justify-between items-center text-white bg-transparent" id="navbar">
+        <div class="text-2xl font-bold tracking-widest serif uppercase">Brown Board</div>
+        <button id="menuBtn" class="p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-nav">
+        <button id="closeBtn" class="absolute top-8 right-8 text-3xl">&times;</button>
+        <a href="#about" class="text-2xl serif">Our Story</a>
+        <a href="#menu" class="text-2xl serif">Explore Menu</a>
+        <a href="#contact" class="text-2xl serif">Contact</a>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-tagline">SINCE 2000</div>
-        <h1>Natural.<br>Organic.<br>Traditional.</h1>
-        <p class="hero-description">
+    <section class="hero-bg h-screen flex flex-col justify-center items-center text-center text-white px-6">
+        <p class="uppercase tracking-[0.3em] text-sm mb-8">Since 2000</p>
+        <h1 class="text-5xl md:text-8xl serif mb-6 leading-tight">Natural.<br>Organic.<br>Traditional.</h1>
+        <p class="max-w-md text-lg font-light leading-relaxed mb-12 opacity-90">
             Experience the authentic flavors of South India and heritage Hyderabadi cuisine in a minimalist, aesthetic setting.
         </p>
-        <div>
-            <a href="#menu" class="btn-primary">EXPLORE MENU</a>
-            <a href="#story" class="btn-secondary">OUR STORY</a>
+        <div class="flex flex-col gap-4 w-full max-w-xs">
+            <a href="#menu" class="btn-solid py-4 text-sm font-bold tracking-widest uppercase">Explore Menu</a>
+            <a href="#about" class="btn-outline py-4 text-sm font-bold tracking-widest uppercase">Our Story</a>
         </div>
     </section>
 
-    <!-- Story Section -->
-    <section class="story" id="story">
-        <div class="story-content">
-            <h2>A Legacy of Simplicity</h2>
-            <div class="story-divider"></div>
+    <!-- About Section -->
+    <section id="about" class="py-24 px-8 max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl serif mb-4">A Legacy of Simplicity</h2>
+        <div class="w-20 h-1 bg-[#8D775F] mb-12"></div>
+        
+        <div class="space-y-8 text-lg text-gray-600 leading-relaxed">
             <p>
-                Established in 2000, <strong>Brown Board</strong> was born out of a love for natural ingredients and age-old traditional cooking methods. We believe that true flavor comes from the earth, uncompromised and organic.
+                Established in 2000, <strong class="text-black">Brown Board</strong> was born out of a love for natural ingredients and age-old traditional cooking methods. We believe that true flavor comes from the earth, uncompromised and organic.
             </p>
             <p>
                 Our ambiance reflects our food: simple, minimalist, and aesthetic. Whether you are craving the fiery, rich spices of authentic Hyderabadi cuisine or the comforting, crisp textures of classic South Indian dishes, we serve it all with uncompromising quality and at a budget-friendly price.
@@ -556,135 +108,208 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
-        <div class="stat">
-            <div class="stat-number">24+</div>
-            <div class="stat-label">YEARS OF<br>HERITAGE</div>
-        </div>
-        <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">ORGANIC SPICES</div>
-        </div>
-    </section>
-
-    <!-- Image Section -->
-    <section class="image-section">
-        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600'><rect fill='%23c4a07a' width='1000' height='600'/><rect x='100' y='450' width='200' height='100' fill='%238b6f47'/><rect x='350' y='400' width='200' height='150' fill='%238b6f47'/><rect x='600' y='430' width='200' height='120' fill='%238b6f47'/><circle cx='500' cy='250' r='60' fill='%2366994d'/><text x='500' y='320' font-size='24' text-anchor='middle' fill='%23555'>Minimalist Dining Space</text></svg>" alt="Restaurant Interior">
-    </section>
-
-    <!-- Menu Section -->
-    <section class="menu-section" id="menu">
-        <div class="menu-header">OUR OFFERINGS</div>
-        <h2 class="menu-title">Budget Friendly Classics</h2>
-        <div class="menu-title-divider"></div>
-
-        <div class="menu-items">
-            <div class="menu-item">
-                <div class="menu-item-image" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 400%22><rect fill=%22%23d4a574%22 width=%22800%22 height=%22400%22/><ellipse cx=%22400%22 cy=%22200%22 rx=%22180%22 ry=%22120%22 fill=%22%23e6c896%22/><circle cx=%22400%22 cy=%22200%22 r=%2280%22 fill=%22%23f4d76e%22/><text x=%22400%22 y=%22350%22 font-size=%2228%22 text-anchor=%22middle%22 fill=%22%23fff%22>Hyderabadi Dum Biryani</text></svg>');"></div>
-                <div class="menu-item-name">
-                    <span>Hyderabadi Dum Biryani</span>
-                    <span class="menu-item-price">₹180</span>
-                </div>
-                <p class="menu-item-description">
-                    Slow-cooked aromatic basmati rice and tender marinated meat, sealed with dough to lock in flavors and steam.
-                </p>
-                <a href="#" class="order-link">ORDER NOW</a>
+    <section class="pb-24 px-8">
+        <div class="grid grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+            <div class="text-center">
+                <span class="block text-4xl serif mb-2">24+</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Years of Heritage</span>
+            </div>
+            <div class="text-center">
+                <span class="block text-4xl serif mb-2">100%</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500">Organic Spices</span>
             </div>
         </div>
+        <div class="max-w-4xl mx-auto">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop" 
+                 alt="Minimalist Restaurant Interior" 
+                 class="w-full h-[500px] object-cover rounded-sm grayscale-[20%]">
+        </div>
     </section>
 
-    <!-- Coffee Section -->
-    <section class="coffee-section">
-        <div class="coffee-card">
-            <h2 class="coffee-title">Traditional Filter Coffee</h2>
-            <div class="coffee-divider"></div>
-            <p class="coffee-subtitle">Freshly brewed organic beans</p>
-            
-            <div class="coffee-item">
-                <div class="coffee-name">
-                    <span>Filter Coffee</span>
-                    <span class="coffee-price">₹35</span>
+    <!-- Offerings Section -->
+    <section id="menu" class="py-24 px-8 bg-[#FDFCFB]">
+        <div class="text-center mb-16">
+            <p class="uppercase tracking-widest text-sm text-gray-400 mb-4">Our Offerings</p>
+            <h2 class="text-4xl serif">Budget Friendly Classics</h2>
+            <div class="w-16 h-1 bg-[#8D775F] mx-auto mt-6"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-20">
+            <!-- Biryani -->
+            <div class="flex flex-col gap-6">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21bc4a4f8?q=80&w=1200&auto=format&fit=crop" alt="Hyderabadi Biryani" class="w-full aspect-[4/3] object-cover rounded-sm">
+                <div>
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h3 class="text-2xl serif">Hyderabadi Dum Biryani</h3>
+                        <span class="text-2xl serif font-light">₹180</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Slow-cooked aromatic basmati rice and tender marinated meat, sealed with dough to lock in the earthy flavors.
+                    </p>
+                    <a href="#" class="text-xs font-bold tracking-widest uppercase flex items-center gap-2">Order Now 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
                 </div>
-                <p class="coffee-description">
-                    Authentic South Indian degree coffee brewed with an organic chicory blend, served frothy in a brass dabarah.
-                </p>
-                <a href="#" class="order-link">ORDER NOW</a>
             </div>
 
-            <a href="#" class="view-menu-btn">VIEW FULL MENU</a>
+            <!-- Dosa -->
+            <div class="flex flex-col gap-6">
+                <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=1200&auto=format&fit=crop" alt="Ghee Roast Dosa" class="w-full aspect-[4/3] object-cover rounded-sm">
+                <div>
+                    <div class="flex justify-between items-baseline mb-4">
+                        <h3 class="text-2xl serif">Ghee Roast Dosa</h3>
+                        <span class="text-2xl serif font-light">₹80</span>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Crispy, golden, paper-thin crepe roasted in organic ghee. Served with freshly ground coconut chutney and sambar.
+                    </p>
+                    <a href="#" class="text-xs font-bold tracking-widest uppercase flex items-center gap-2">Order Now 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Coffee Card (Featured) -->
+            <div class="bg-[#EAE4D8] p-12 text-center flex flex-col items-center">
+                <h3 class="text-3xl md:text-4xl serif mb-6">Traditional Filter Coffee</h3>
+                <div class="w-10 h-[1px] bg-gray-500 mb-6"></div>
+                <p class="italic text-gray-600 mb-8">Freshly brewed organic beans</p>
+                <div class="w-full h-[1px] bg-gray-300 my-8"></div>
+                <div class="flex flex-col items-center">
+                    <div class="flex justify-between w-full max-w-xs items-baseline mb-2">
+                        <span class="text-2xl serif">Filter Coffee</span>
+                        <span class="text-2xl serif">₹35</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-8">
+                        Authentic South Indian degree coffee brewed with an organic chicory blend, served frothy in a brass dabarah.
+                    </p>
+                    <a href="#" class="text-xs font-bold tracking-widest uppercase flex items-center gap-2">Order Now 
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center py-10">
+                <button class="border border-black px-12 py-4 uppercase tracking-widest text-sm font-bold hover:bg-black hover:text-white transition-all">View Full Menu</button>
+            </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials">
-        <h2>Loved by Hyderabad</h2>
-        <div class="testimonials-divider"></div>
-        <p class="testimonials-intro">
-            Don't just take our word for it. Here's what our community has been saying about our food and ambiance over the years.
-        </p>
-
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">
-                "The best budget biryani in town! The aesthetic is so pleasing and calm. You wouldn't expect such high quality food at these prices."
-            </p>
-            <p class="testimonial-author">- Anjali M.</p>
+    <section class="py-24 px-8 bg-white overflow-hidden">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl serif">Loved by Hyderabad</h2>
+            <div class="w-16 h-1 bg-[#8D775F] mx-auto mt-6"></div>
+            <p class="mt-8 text-gray-500 max-w-sm mx-auto">Don't just take our word for it. Here's what our community has been saying over the years.</p>
         </div>
 
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">
-                "A true hidden gem since 2000. Their Ghee Roast Dosa takes me back to my grandmother's cooking. Natural, simple, and absolutely delicious."
-            </p>
-            <p class="testimonial-author">- Rahul S.</p>
-        </div>
-
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">
-                "I love the minimalist ambiance. It's my go-to place for authentic South Indian filter coffee and a quiet afternoon. Highly recommended!"
-            </p>
-            <p class="testimonial-author">- Priya V.</p>
+        <div class="flex gap-6 overflow-x-auto pb-12 snap-x px-4 no-scrollbar">
+            <!-- Review 1 -->
+            <div class="min-w-[85%] md:min-w-[400px] snap-center p-8 bg-[#F9F7F2] rounded-sm card-shadow">
+                <div class="flex text-yellow-500 mb-6">★★★★★</div>
+                <p class="italic text-gray-600 mb-8 leading-relaxed">
+                    "The best budget biryani in town! The aesthetic is so pleasing and calm. You wouldn't expect such high quality food at these prices."
+                </p>
+                <p class="font-bold serif">— Anjali M.</p>
+            </div>
+            <!-- Review 2 -->
+            <div class="min-w-[85%] md:min-w-[400px] snap-center p-8 bg-[#F9F7F2] rounded-sm card-shadow">
+                <div class="flex text-yellow-500 mb-6">★★★★★</div>
+                <p class="italic text-gray-600 mb-8 leading-relaxed">
+                    "A true hidden gem since 2000. Their Ghee Roast Dosa takes me back to my grandmother's cooking. Natural, simple, and absolutely delicious."
+                </p>
+                <p class="font-bold serif">— Rahul S.</p>
+            </div>
+            <!-- Review 3 -->
+            <div class="min-w-[85%] md:min-w-[400px] snap-center p-8 bg-[#F9F7F2] rounded-sm card-shadow">
+                <div class="flex text-yellow-500 mb-6">★★★★★</div>
+                <p class="italic text-gray-600 mb-8 leading-relaxed">
+                    "I love the minimalist ambiance. It's my go-to place for authentic South Indian filter coffee and a quiet afternoon. Highly recommended!"
+                </p>
+                <p class="font-bold serif">— Priya V.</p>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">BROWN BOARD</div>
-            <p class="footer-tagline">
+    <footer id="contact" class="bg-[#1A1A1A] text-white py-24 px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl serif mb-10 tracking-widest uppercase">Brown Board</h2>
+            <p class="text-gray-400 mb-16 leading-relaxed">
                 Natural, organic, and traditional. Serving authentic South Indian and Hyderabadi cuisine since 2000 in a minimalist setting.
             </p>
 
-            <div class="footer-section">
-                <h3>CONTACT</h3>
-                <div class="footer-info">
-                    <span class="footer-info-icon">📍</span>
-                    <div>123 Heritage Lane, Banjara Hills<br>Hyderabad, TS 500034</div>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h4 class="text-sm font-bold tracking-[0.2em] uppercase mb-8 text-gray-500">Contact</h4>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <p class="text-gray-300">123 Heritage Lane, Banjara Hills<br>Hyderabad, TS 500034</p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            <p class="text-gray-300">+91 98765 43210</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-info">
-                    <span class="footer-info-icon">📞</span>
-                    <div>+91 98765 43210</div>
+
+                <div>
+                    <h4 class="text-sm font-bold tracking-[0.2em] uppercase mb-8 text-gray-500">Hours</h4>
+                    <div class="flex items-start gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <div class="text-gray-300">
+                            <p class="font-bold mb-2">Mon – Sun</p>
+                            <p class="mb-1">Breakfast: 7:00 AM – 11:30 AM</p>
+                            <p>Lunch/Dinner: 12:30 PM – 11:00 PM</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="footer-section">
-                <h3>HOURS</h3>
-                <div class="footer-hours">
-                    <strong>Mon - Sun</strong><br>
-                    Breakfast: 7:00 AM - 11:30 AM<br>
-                    Lunch/Dinner: 12:30 PM - 11:00 PM
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>© 2026 Brown Board Restaurant. All rights reserved.</p>
-                <div class="footer-links">
+            <div class="mt-24 pt-8 border-t border-gray-800 text-xs text-gray-500 flex flex-col md:flex-row justify-between gap-6">
+                <p>&copy; 2026 Brown Board Restaurant. All rights reserved.</p>
+                <div class="flex gap-8">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.onscroll = function() {
+            const nav = document.getElementById('navbar');
+            if (window.pageYOffset > window.innerHeight - 100) {
+                nav.classList.add('bg-white', 'text-black', 'shadow-md');
+                nav.classList.remove('bg-transparent', 'text-white');
+            } else {
+                nav.classList.add('bg-transparent', 'text-white');
+                nav.classList.remove('bg-white', 'text-black', 'shadow-md');
+            }
+        };
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menuBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.onclick = () => {
+            mobileMenu.style.display = 'flex';
+        };
+
+        closeBtn.onclick = () => {
+            mobileMenu.style.display = 'none';
+        };
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.onclick = () => {
+                mobileMenu.style.display = 'none';
+            };
+        });
+    </script>
 </body>
 </html>
+
